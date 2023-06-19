@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "5ka Sans Design";
+    src: url("5kaSansDesign-Regular.otf") format("opentype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "5ka Sans Design";
+    src: url("5kaSansDesign-Black.otf") format("opentype");
+    font-weight: 900;
+}
