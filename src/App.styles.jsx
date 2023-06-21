@@ -7,6 +7,7 @@ export const Layout = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 320px;
 `;
 
 export const MainContent = styled.main`

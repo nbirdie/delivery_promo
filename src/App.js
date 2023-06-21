@@ -1,4 +1,10 @@
-import React, { useRef, useLayoutEffect, useState, useEffect } from "react";
+import React, {
+    useRef,
+    useLayoutEffect,
+    useState,
+    useEffect,
+    useContext,
+} from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle, baseTheme } from "./styles";
 import {
@@ -17,8 +23,10 @@ import { LeavesScreen768X1024 } from "./common/leaves";
 import { LeavesScreen320X630 } from "./common/leaves";
 import { LeavesScreen320X568 } from "./common/leaves";
 import { MultiContextProvider } from "./components/MultiContextProvider/MultiContextProvider";
+import { MultiContext } from "./contexts";
 
 function App() {
+    const globalContext = useContext(MultiContext);
     const [widthScreen, setWidthScreen] = useState(0);
     const [width, setWidth] = useState(0);
     const [leaves, setLeaves] = useState([]);
@@ -73,7 +81,8 @@ function App() {
                                 widthScreen={widthScreen}
                                 width={width}
                             />
-                            <HandMove />
+                            <HandMove
+                            />
                         </LeavesWrapper>
                         <MainContent>
                             <Logo />

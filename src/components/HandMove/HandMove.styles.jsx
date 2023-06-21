@@ -10,6 +10,45 @@ const fadeOut = keyframes`
 
 `;
 
+const moveAndRotate = keyframes`
+    0% {
+        top: 0;
+        left: 0;
+        transform: rotate(0) translateX(0);
+    }
+    25% {
+        top: 0;
+        left: 100%;
+        transform-origin: 0 0;
+        transform: translateX(-60%) rotate(21.1deg);
+    }
+    50% {
+        top: 0;
+        left: 0;
+        transform: rotate(0) translateX(0);
+    }
+    100% {
+        top: 0;
+        left: 0;
+        transform: rotate(0) translateX(0);
+    }
+`;
+
+const lineOpacity = keyframes`
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+`;
+
 export const HandMoveWrapper = styled.div`
     opacity: 1;
     visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
@@ -18,49 +57,15 @@ export const HandMoveWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 79px;
-    width: 505px;
+    width: 900px;
     position: absolute;
-    left: 708px;
-    top: 620px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 520px;
     z-index: 100;
-    @keyframes moveAndRotate {
-        0% {
-            top: 0;
-            left: 0;
-            transform: rotate(0) translateX(0);
-        }
-        25% {
-            top: 0;
-            left: 100%;
-            transform-origin: 0 0;
-            transform: translateX(-60%) rotate(21.1deg);
-        }
-        50% {
-            top: 0;
-            left: 0;
-            transform: rotate(0) translateX(0);
-        }
-        100% {
-            top: 0;
-            left: 0;
-            transform: rotate(0) translateX(0);
-        }
-    }
-    @keyframes lineOpacity {
-        0% {
-            opacity: 0;
-        }
-        25% {
-            opacity: 0.7;
-        }
-        50% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-    div {
+    padding-top: 100px;
+
+    .hand-icon {
         width: 245px;
         height: 100px;
         position: relative;
@@ -71,7 +76,7 @@ export const HandMoveWrapper = styled.div`
         left: 0;
         width: 82.33px;
         height: 99.24px;
-        animation: moveAndRotate 4s ease-out 0.1s infinite;
+        animation: ${moveAndRotate} 4s ease-out 0.1s infinite;
     }
     hr {
         position: absolute;
@@ -81,7 +86,7 @@ export const HandMoveWrapper = styled.div`
         width: 41px;
         border-top: 2px solid ${({ theme }) => theme.colors.white};
         opacity: 0;
-        animation: lineOpacity 4s ease-out 0.1s infinite;
+        animation: ${lineOpacity} 4s ease-out 0.1s infinite;
     }
 
     span {
@@ -93,11 +98,11 @@ export const HandMoveWrapper = styled.div`
         font-weight: ${({ theme }) => theme.text.fontWeight.bold};
     }
     @media (max-width: 1919px) {
-        top: 618px;
-        left: 222px;
+        top: 518px;
         gap: 164px;
-        width: 325px;
-        div {
+        width: 650px;
+        padding-top: 100px;
+        .hand-icon {
             width: 201px;
             height: 82px;
             svg {
@@ -114,11 +119,11 @@ export const HandMoveWrapper = styled.div`
     }
 
     @media (max-width: 767px) and (height >= 630px) {
-        top: 364px;
-        left: 83px;
+        top: 314px;
         gap: 45px;
-        width: 155px;
-        div {
+        width: 300px;
+        padding-top: 50px;
+        .hand-icon {
             width: 96px;
             height: 39px;
             svg {
@@ -134,11 +139,11 @@ export const HandMoveWrapper = styled.div`
         }
     }
     @media (max-width: 767px) and (height < 630px) {
-        top: 351px;
-        left: 83px;
+        top: 301px;
         gap: 63px;
-        width: 155px;
-        div {
+        width: 300px;
+        padding-top: 50px;
+        .hand-icon {
             width: 96px;
             height: 39px;
             svg {
