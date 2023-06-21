@@ -9,6 +9,7 @@ export const HandMoveWrapper = styled.div`
     position: absolute;
     left: 708px;
     top: 620px;
+    z-index: 100;
     @keyframes moveAndRotate {
         0% {
             top: 0;

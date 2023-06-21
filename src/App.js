@@ -11,29 +11,39 @@ import {
     PromoCode,
 } from "./components";
 import { UrlChecker } from "./components";
-import { Layout, LeavesWrapper, MainContent } from "./App.styles";
+import { Layout, LeavesWrapper, MainContent, LeavesZone } from "./App.styles";
 import { LeavesScreen1920X965 } from "./common/leaves";
 import { LeavesScreen768X1024 } from "./common/leaves";
 import { LeavesScreen320X630 } from "./common/leaves";
 import { LeavesScreen320X568 } from "./common/leaves";
 
 function App() {
+    const [widthScreen, setWidthScreen] = useState(0);
+    const [width, setWidth] = useState(0);
     const [leaves, setLeaves] = useState([]);
+    const [isVisible, setPromoVisible] = useState(false);
     const elementRef = useRef(null);
 
     const handleWidthHeightChange = () => {
         const widthScreen = elementRef.current.offsetWidth;
         const heightScreen = elementRef.current.offsetHeight;
-        widthScreen >= 1920 && setLeaves(LeavesScreen1920X965);
-        widthScreen >= 768 &&
-            widthScreen < 1920 &&
+        setWidthScreen(widthScreen)
+        if (widthScreen >= 1920) {
+            setLeaves(LeavesScreen1920X965);
+            setWidth(1920);
+        }
+        if (widthScreen >= 768 && widthScreen < 1920) {
             setLeaves(LeavesScreen768X1024);
-        widthScreen < 768 &&
-            heightScreen >= 630 &&
+            setWidth(768);
+        }
+        if (widthScreen < 768 && heightScreen >= 630) {
             setLeaves(LeavesScreen320X630);
-        widthScreen < 768 &&
-            heightScreen < 630 &&
+            setWidth(320);
+        }
+        if (widthScreen < 768 && heightScreen < 630) {
             setLeaves(LeavesScreen320X568);
+            setWidth(320);
+        }
     };
 
     useLayoutEffect(() => {
@@ -53,14 +63,15 @@ function App() {
             <UrlChecker>
                 <Layout ref={elementRef}>
                     <LeavesWrapper>
-                        <Leaves leaves={leaves} />
+                        <Leaves leaves={leaves} widthScreen={widthScreen} width={width}/>
+                        {/* <LeavesZone className="leaves"/> */}
                         <HandMove />
                     </LeavesWrapper>
                     <MainContent>
                         <Logo />
                         <CampaignInfo />
-                        <PromoCode />
-                        <AppLink />
+                        <PromoCode isvisible={isVisible ? 1 : 0} />
+                        <AppLink isvisible={isVisible ? 1 : 0} />
                     </MainContent>
                     <Footer />
                 </Layout>

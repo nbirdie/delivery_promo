@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const AppLinkWrapper = styled.div`
+    visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
     display: flex;
     flex-direction: column;
     align-items: center;
