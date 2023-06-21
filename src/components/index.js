@@ -6,3 +6,4 @@ export * from "./PromoCode";
 export * from "./Footer";
 export * from "./UrlChecker";
 export * from "./HandMove";
+export * from "./MultiContextProvider";

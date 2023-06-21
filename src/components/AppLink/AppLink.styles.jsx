@@ -1,12 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const AppLinkWrapper = styled.div`
-    visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 57px;
-    @keyframes wiggle {
+const fadeIn = keyframes`
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+
+`;
+
+const wiggle = keyframes`
         5%,
         50% {
             transform: scale(1);
@@ -32,7 +36,20 @@ export const AppLinkWrapper = styled.div`
         40% {
             transform: scale(1.15) rotate(0);
         }
-    }
+`;
+
+export const AppLinkWrapper = styled.div`
+    visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 57px;
+    animation: ${(props) => (props.isvisible ? fadeIn : "")};
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
     .logo5-rect {
         border: none;
         background-color: ${({ theme }) => theme.colors.white};
@@ -48,7 +65,7 @@ export const AppLinkWrapper = styled.div`
         }
     }
     .button-wiggle {
-        animation: wiggle 4s 2s infinite;
+        animation: ${wiggle} 4s 4s infinite;
     }
 
     .qr-code {

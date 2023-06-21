@@ -1,7 +1,23 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+
+`;
 
 export const PromoCodeWrapper = styled.div`
-    visibility: ${props => props.isvisible ? "visible" : "hidden"};
+    visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
+    opacity: 0;
+    animation: ${(props) => (props.isvisible ? fadeIn : "")};
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,6 +1,19 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeOut = keyframes`
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+
+`;
 
 export const HandMoveWrapper = styled.div`
+    opacity: 1;
+    visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
+    animation: ${(props) => (!props.isvisible ? fadeOut : "")};
     display: flex;
     flex-direction: column;
     align-items: center;

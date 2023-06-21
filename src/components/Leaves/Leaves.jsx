@@ -1,13 +1,17 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect, useContext } from "react";
+import { observer } from "mobx-react-lite";
 import { LeavesWrapper } from "./Leaves.styles";
+import { MultiContext } from "../../contexts";
 
-export const Leaves = ({ leaves, widthScreen, width }) => {
+export const Leaves = observer(({ leaves, widthScreen, width }) => {
+    const globalContext = useContext(MultiContext);
     const leavesRef = useRef([]);
     const [dragging, setDragging] = useState(false);
     const [moving, setMoving] = useState(false);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [moveAndDown, setMoveAndDown] = useState(false);
-    const [shouldAnimate, setShouldAnimate] = useState({});
+
+    // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    // const [moveAndDown, setMoveAndDown] = useState(false);
+    // const [shouldAnimate, setShouldAnimate] = useState({});
 
     const handleMouseDown = () => {
         setDragging(true);
@@ -32,6 +36,7 @@ export const Leaves = ({ leaves, widthScreen, width }) => {
             //     console.log(shouldAnimate);
             // }
             setMoving(true);
+            globalContext.store.setVisiblePromo(true);
         }
     };
 
@@ -70,6 +75,7 @@ export const Leaves = ({ leaves, widthScreen, width }) => {
             //     }
             // }
             setMoving(true);
+            globalContext.store.setVisiblePromo(true);
         }
     };
 
@@ -113,4 +119,4 @@ export const Leaves = ({ leaves, widthScreen, width }) => {
             })}
         </>
     );
-};
+});
