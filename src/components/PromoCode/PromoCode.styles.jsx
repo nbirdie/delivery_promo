@@ -66,6 +66,12 @@ export const Code = styled.div`
     svg {
         width: 19px;
         height: 27px;
+        &:hover {
+            transform: scale(1.01);
+        }
+        &:active {
+            transform: translateY(2px);
+        }
     }
     @media (max-width: 1919px) {
         gap: 20px;

@@ -20,6 +20,7 @@ export const HandMove = observer(() => {
 
     const handleMouseMove = () => {
         if (dragging) {
+            console.log(1);
             playSound();
             globalContext.store.setShouldAnimateLeaves(true);
             globalContext.store.setVisiblePromo(true);

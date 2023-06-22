@@ -16,10 +16,11 @@ const changePosition = (props) => keyframes`
             : `${(props.width - props.widthscreen) / 2}px`
     };
     transform: ${
-        !props.item.leftFinal &&
-        (props.item.left > props.width / 2
-            ? `translate(100%, 0) rotate(${props.item.rotate}deg)`
-            : `translate(-100%, 0) rotate(${props.item.rotate}deg)`)
+        !props.item.leftFinal
+            ? props.item.left > props.width / 2
+                ? `translate(100%, 0) rotate(${props.item.rotate}deg)`
+                : `translate(-100%, 0) rotate(${props.item.rotate}deg)`
+            : `rotate(${props.item.rotateFinal}deg)`
     };
     opacity: 1;
   }
@@ -33,10 +34,11 @@ const changePosition = (props) => keyframes`
             : `${(props.width - props.widthscreen) / 2}px`
     };
      transform: ${
-         !props.item.leftFinal &&
-         (props.item.left > props.width / 2
-             ? `translate(100%, 0) rotate(${props.item.rotate}deg)`
-             : `translate(-100%, 0) rotate(${props.item.rotate}deg)`)
+         !props.item.leftFinal
+             ? props.item.left > props.width / 2
+                 ? `translate(100%, 0) rotate(${props.item.rotate}deg)`
+                 : `translate(-100%, 0) rotate(${props.item.rotate}deg)`
+             : `rotate(${props.item.rotateFinal}deg)`
      };
     opacity: ${props.item.leftFinal ? 1 : 0};
   }

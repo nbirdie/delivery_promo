@@ -6,12 +6,23 @@ import { MultiContext } from "../../contexts";
 
 export const PromoCode = observer(() => {
     const globalContext = useContext(MultiContext);
+    const handleCopyClick = () => {
+        const codeText = globalContext.store.promoCode;
+        navigator.clipboard
+            .writeText(codeText)
+            .then(() => {
+                console.log("Copied to clipboard:", codeText);
+            })
+            .catch((error) => {
+                console.error("Failed to copy to clipboard:", error);
+            });
+    };
     return (
         <PromoCodeWrapper
             isvisible={globalContext.store.visiblePromoAndLink ? 1 : 0}
         >
             <span>{globalContext.store.promoCodeSpan}</span>
-            <Code>
+            <Code onClick={handleCopyClick} onTouchStart={handleCopyClick}>
                 <span>{globalContext.store.promoCode}</span>
                 <IconCopySvg />
             </Code>
