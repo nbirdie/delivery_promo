@@ -12,97 +12,14 @@ import { MultiContext } from "../../contexts";
 export const Leaves = observer(({ leaves, widthScreen, width }) => {
     const globalContext = useContext(MultiContext);
     const leavesRef = useRef([]);
-    // const [dragging, setDragging] = useState(false);
-    // const [moving, setMoving] = useState(false);
-
-    // // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    // // const [moveAndDown, setMoveAndDown] = useState(false);
-    // const [shouldAnimate, setShouldAnimate] = useState({});
-
-    // const handleMouseDown = () => {
-    //     setDragging(true);
-    // };
-
-    // const handleMouseUp = () => {
-    //     setDragging(false);
-    // };
-
-    // const handleMouseMove = (event, index) => {
-    //     event.stopPropagation();
-    //     if (dragging) {
-    //         //CODE FOR INDIVIDUAL LEAF ANIMATION
-    //         // const target = event.target;
-    //         // if (shouldAnimate.hasOwnProperty(index)) {
-    //         //     return;
-    //         // }
-    //         // if (target && target.tagName === "svg") {
-    //         //     setShouldAnimate((prevState) => ({
-    //         //         ...prevState,
-    //         //         [index]: 1,
-    //         //     }));
-    //         //     console.log(shouldAnimate);
-    //         // }
-    //         setMoving(true);
-    //         globalContext.store.setVisiblePromo(true);
-    //     }
-    // };
-
-    // const handleTouchStart = () => {
-    //     setDragging(true);
-    // };
-
-    // const handleTouchEnd = () => {
-    //     setDragging(false);
-    // };
-
-    // const handleTouchMove = (event, index) => {
-    //     event.stopPropagation();
-    //     console.log("index: ", index);
-
-    //     if (dragging) {
-    //         //CODE FOR INDIVIDUAL LEAF ANIMATION
-    //         // const x = event.touches[0].clientX;
-    //         // const y = event.touches[0].clientY;
-    //         // console.log(x, y);
-    //         // const actualTarget = document.elementFromPoint(x, y);
-    //         // if (actualTarget && actualTarget.tagName === "svg") {
-    //         //     const index = leavesRef.current.findIndex(
-    //         //         (ref) => ref === actualTarget
-    //         //     );
-    //         //     const target = event.touches[0].target;
-    //         //     if (shouldAnimate.hasOwnProperty(index)) {
-    //         //         return;
-    //         //     }
-    //         //     if (target && target.tagName === "svg") {
-    //         //         console.log(target.parentNode);
-    //         //         console.log(1);
-    //         //         setShouldAnimate((prevState) => ({
-    //         //             ...prevState,
-    //         //             [index]: 1,
-    //         //         }));
-    //         //     }
-    //         // }
-    //         setMoving(true);
-    //         globalContext.store.setVisiblePromo(true);
-    //     }
-    // };
-
-    // // useEffect(() => {
-    // //     window.addEventListener("mousedown", handleMouseDown);
-    // //     window.addEventListener("mouseup", handleMouseUp);
-    // //     window.addEventListener("touchstart", handleMouseDown);
-    // //     window.addEventListener("touchend", handleMouseUp);
-
-    // //     return () => {
-    // //         window.removeEventListener("mousedown", handleMouseDown);
-    // //         window.removeEventListener("mouseup", handleMouseUp);
-    // //         window.removeEventListener("touchstart", handleMouseDown);
-    // //         window.removeEventListener("touchend", handleMouseUp);
-    // //     };
-    // // }, []);
 
     return (
         <>
+            {/* <audio
+                ref={audioElement}
+                src={leavesSoundPath}
+                style={{ display: "none" }}
+            ></audio> */}
             {leaves.map((item, index) => {
                 return (
                     <LeavesWrapper
@@ -114,12 +31,6 @@ export const Leaves = observer(({ leaves, widthScreen, width }) => {
                         shouldanimate={
                             globalContext.store.shouldAnimateLeaves ? 1 : 0
                         }
-                        //CODE FOR INDIVIDUAL LEAF ANIMATION
-                        // shouldanimate={shouldAnimate[index] || 0}
-                        // onMouseMove={(event) => handleMouseMove(event, index)}
-                        // onTouchStart={handleTouchStart}
-                        // onTouchEnd={handleTouchEnd}
-                        // onTouchMove={(event) => handleTouchMove(event, index)}
                     >
                         <item.leaf
                             className="leaf"
@@ -131,3 +42,36 @@ export const Leaves = observer(({ leaves, widthScreen, width }) => {
         </>
     );
 });
+
+// const runSound = () => {
+//     if (audioElement && audioElement.current) {
+//         audioElement.current.muted = false;
+//         console.log(audioElement.current)
+//         audioElement.current
+//             .play()
+//             .then(() => {
+//                 if (gainNodeElement === undefined) {
+//                     const audioCtx = new AudioContext();
+//                     const audioApiSource = new MediaElementAudioSourceNode(
+//                         audioCtx,
+//                         {
+//                             mediaElement: audioElement.current,
+//                         }
+//                     );
+//                     gainNodeElement = new GainNode(audioCtx);
+//                     audioApiSource.connect(gainNodeElement);
+//                     gainNodeElement.connect(audioCtx.destination);
+//                 }
+//             })
+//             .catch((error) => {
+//                 console.log(`Audio error: ${error}`);
+//             });
+//     }
+// };
+
+// useEffect(() => {
+//     if (globalContext.store.shouldAnimateLeaves) {
+//         runSound();
+//     }
+
+// }, [globalContext.store.shouldAnimateLeaves])

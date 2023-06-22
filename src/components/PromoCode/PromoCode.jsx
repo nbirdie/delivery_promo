@@ -10,9 +10,9 @@ export const PromoCode = observer(() => {
         <PromoCodeWrapper
             isvisible={globalContext.store.visiblePromoAndLink ? 1 : 0}
         >
-            <span>Ваш промокод</span>
+            <span>{globalContext.store.promoCodeSpan}</span>
             <Code>
-                <span>AMW18891</span>
+                <span>{globalContext.store.promoCode}</span>
                 <IconCopySvg />
             </Code>
         </PromoCodeWrapper>

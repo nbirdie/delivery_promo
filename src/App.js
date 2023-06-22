@@ -15,6 +15,7 @@ import {
     Leaves,
     Logo,
     PromoCode,
+    PromoChecker,
 } from "./components";
 import { UrlChecker } from "./components";
 import { Layout, MainContent, LeavesWrapper } from "./App.styles";
@@ -26,11 +27,9 @@ import { MultiContextProvider } from "./components/MultiContextProvider/MultiCon
 import { MultiContext } from "./contexts";
 
 function App() {
-    const globalContext = useContext(MultiContext);
     const [widthScreen, setWidthScreen] = useState(0);
     const [width, setWidth] = useState(0);
     const [leaves, setLeaves] = useState([]);
-    const [isVisible, setPromoVisible] = useState(false);
     const elementRef = useRef(null);
 
     const handleWidthHeightChange = () => {
@@ -74,24 +73,25 @@ function App() {
             <ThemeProvider theme={baseTheme}>
                 <GlobalStyle />
                 <UrlChecker>
-                    <Layout ref={elementRef}>
-                        <LeavesWrapper>
-                            <Leaves
-                                leaves={leaves}
-                                widthScreen={widthScreen}
-                                width={width}
-                            />
-                            <HandMove
-                            />
-                        </LeavesWrapper>
-                        <MainContent>
-                            <Logo />
-                            <CampaignInfo />
-                            <PromoCode />
-                            <AppLink />
-                        </MainContent>
-                        <Footer />
-                    </Layout>
+                    <PromoChecker>
+                        <Layout ref={elementRef}>
+                            <LeavesWrapper>
+                                <Leaves
+                                    leaves={leaves}
+                                    widthScreen={widthScreen}
+                                    width={width}
+                                />
+                                <HandMove />
+                            </LeavesWrapper>
+                            <MainContent>
+                                <Logo />
+                                <CampaignInfo />
+                                <PromoCode />
+                                <AppLink />
+                            </MainContent>
+                            <Footer />
+                        </Layout>
+                    </PromoChecker>
                 </UrlChecker>
             </ThemeProvider>
         </MultiContextProvider>

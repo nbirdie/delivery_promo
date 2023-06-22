@@ -51,6 +51,7 @@ const lineOpacity = keyframes`
 
 export const HandMoveWrapper = styled.div`
     opacity: 1;
+    touch-action: manipulation;
     visibility: ${(props) => (props.isvisible ? "visible" : "hidden")};
     animation: ${(props) => (!props.isvisible ? fadeOut : "")};
     display: flex;

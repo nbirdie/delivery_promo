@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { WrongPageWrapper } from "./UrlChecker.styles";
 import { ReactComponent as RedLeaf1Svg } from "../../assets/leaves/red-leaf-1.svg";
+import { observer } from "mobx-react-lite";
+import { MultiContext } from "../../contexts";
 
-export const UrlChecker = ({ children }) => {
-    const checkUrlParams = () => {
+export const UrlChecker = observer(({ children }) => {
+    const globalContext = useContext(MultiContext);
+
+    const checkUrlParams = React.useMemo(() => {
         const queryParameters = new URLSearchParams(window.location.search);
-        return (
-            queryParameters.get("utm_source") &&
-            queryParameters.get("utm_campaign")
-        );
-    };
+        const utmSource = queryParameters.get("utm_source");
+        const utmCampaign = queryParameters.get("utm_campaign");
+        if (utmSource && utmCampaign) {
+            globalContext.store.setUtmSource(utmSource);
+            globalContext.store.setUtmCampaign(utmCampaign);
+            return true;
+        }
+        return false;
+        // return (
+        //     queryParameters.get("utm_source") &&
+        //     queryParameters.get("utm_campaign")
+        // );
+    }, []);
 
     return (
         <>
-            {checkUrlParams() ? (
+            {checkUrlParams ? (
                 children
             ) : (
                 <WrongPageWrapper>
@@ -35,4 +47,4 @@ export const UrlChecker = ({ children }) => {
             )}
         </>
     );
-};
+});

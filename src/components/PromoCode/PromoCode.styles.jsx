@@ -55,6 +55,7 @@ export const PromoCodeWrapper = styled.div`
 `;
 
 export const Code = styled.div`
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 13px;
