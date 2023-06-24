@@ -1,12 +1,12 @@
-name: Milonask promocodes project workflow
+name: Milonask
 
 on: [push]
 
 jobs:
 
-  build_and_push_backend_to_docker_hub:
+  build-push-backend:
     if: github.ref == 'refs/heads/master'
-    name: Push Backend Docker image to Docker Hub
+    name: build backend
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -25,9 +25,9 @@ jobs:
           context: backend
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_BACKEND }}:latest
 
-  build_and_push_frontend_to_docker_hub:
+  build-push-frontend:
     if: github.ref == 'refs/heads/master'
-    name: Push Frontend Docker image to Docker Hub
+    name: build-push frontend
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
