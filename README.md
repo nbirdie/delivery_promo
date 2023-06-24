@@ -1,4 +1,5 @@
 # Milonask
+[![Milonask promocodes project workflow](https://github.com/nbirdie/delivery_promo/actions/workflows/main.yaml/badge.svg)](https://github.com/nbirdie/delivery_promo/actions/workflows/main.yaml)
 
 ## Содержание
 1. [Описание](#description)
