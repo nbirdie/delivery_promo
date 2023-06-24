@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "milonask-backend"
+version = "0.1.0"
+description = ""
+authors = ["Kate Shadrina <eolshadrina@mail.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "4.2.2"
+django-cors-headers = "4.1.0"
+pydantic = "1.10.9"
+envparse = "0.2.0"
+psycopg2-binary = "2.9.6"
+gunicorn = "20.1.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+isort = "*"
+mypy = "*"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+include = '\.pyi?$'
+skip-string-normalization = false
+exclude = '''
+(
+  /(
+    | \.git
+    | \.mypy_cache
+  )/
+)
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+no_lines_before = ['STDLIB', 'LOCALFOLDER']
+force_to_top = []
+known_third_party = [
+  'dal',
+  'django',
+  'rangefilter',
+]
+multi_line_output = 3
+lines_after_imports = 2
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
