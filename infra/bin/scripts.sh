@@ -12,13 +12,13 @@ NC="\033[0m"
 MANUAL_INFO=""
 MANUAL_INFO+="${LIGHT_BLUE}Usage:${NC} sh ./start-project.sh COMMAND\n"
 MANUAL_INFO+="${LIGHT_BLUE}Options:${NC}\n"
-MANUAL_INFO+="    setup_app          Starts app.\n"
-MANUAL_INFO+="    setup_app_local    Starts app with local development mode.\n"
-MANUAL_INFO+="    stop_app           Delete all app's containers.\n"
-MANUAL_INFO+="    delete_app         Delete all app's containers and volumes.\n"
-MANUAL_INFO+="    create_admin       Create superuser for access to admin panel.\n"
-MANUAL_INFO+="    load_data          Load test data with promocodes to database.\n"
-MANUAL_INFO+="    help               Returns more information."
+MANUAL_INFO+="    setup_app  . . . . . . . Starts app.\n"
+MANUAL_INFO+="    setup_app_local  . . . . Starts app with local development mode.\n"
+MANUAL_INFO+="    stop_app . . . . . . . . Delete all app's containers.\n"
+MANUAL_INFO+="    delete_app . . . . . . . Delete all app's containers and volumes.\n"
+MANUAL_INFO+="    create_admin . . . . . . Create superuser for access to admin panel.\n"
+MANUAL_INFO+="    load_data  . . . . . . . Load test data with promocodes to database.\n"
+MANUAL_INFO+="    help . . . . . . . . . . Returns more information."
 
 
 function get_project_root_path() {
@@ -35,10 +35,8 @@ function setup_app() {
 
     printf "\n${GREEN}Start up containers${NC}\n"
     if [ $1 = true ]; then
-        echo $(pwd)
         docker-compose -f docker-compose.local.yaml up -d --build
     else
-        
         docker-compose -f docker-compose.yaml up -d --build
     fi
 
@@ -50,6 +48,7 @@ function setup_app() {
 }
 
 
+cd $(get_project_root_path)/infra
 # sh scripts.sh
 if [ $INPUTED_COMMANDS_COUNT -eq 0 ]; then
     printf "\n$MANUAL_INFO\n"
