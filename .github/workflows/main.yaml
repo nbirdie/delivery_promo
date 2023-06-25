@@ -105,8 +105,6 @@ jobs:
       - build-backend
       - build-frontend
     steps:
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
       - name: Execute remote SSH commands to deploy
         env:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
@@ -128,6 +126,7 @@ jobs:
           POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
           POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
         run: |
+          sudo apt-get install -y sshpass
           sshpass -p $SERVER_PASSWORD ssh $SERVER_USER@$SERVER_HOST 'bash -s' << 'EOF'
           cd ~
           sudo docker pull $DOCKERHUB_USERNAME/$DOCKER_IMAGE_BACKEND:latest
