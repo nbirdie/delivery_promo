@@ -25,7 +25,6 @@ export const PromoChecker = observer(({ children }) => {
                     accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-                host: 'localhost',
                 body: JSON.stringify({
                     utm_source: utmSource,
                     utm_campaign: utmCampaign,
