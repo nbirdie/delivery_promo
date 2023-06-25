@@ -61,15 +61,14 @@ jobs:
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_BACKEND }}:latest
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_FRONTEND }}:latest
 
-            if [ -d ./apps/${{ secrets.GIT_PROJECT_NAME }}/ ];
-              then
-                cd ./apps/${{ secrets.GIT_PROJECT_NAME }}/
-                sh ./infra/bin/scripts.sh stop_app
-                git pull
-              else
-                cd ./apps/
-                git clone https://github.com/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_PROJECT_NAME }}.git
-                cd ./${{ secrets.GIT_PROJECT_NAME }}/
+            if [ -d ./apps/${{ secrets.GIT_PROJECT_NAME }}/ ]; then
+              cd ./apps/${{ secrets.GIT_PROJECT_NAME }}/
+              sh ./infra/bin/scripts.sh stop_app
+              git pull
+            else
+              cd ./apps/
+              git clone https://github.com/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_PROJECT_NAME }}.git
+              cd ./${{ secrets.GIT_PROJECT_NAME }}/
             fi
 
             printf "Sarts unseting global variables"

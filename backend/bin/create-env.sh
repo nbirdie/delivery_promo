@@ -11,7 +11,7 @@ get_env_path() {
     done
     printf "$project_root_path"
     env_file_path="$project_root_path/backend/.env"
-    echo "$env_file_path"
+    echo $env_file_path
 }
 
 remove_env_file() {

@@ -27,7 +27,7 @@ get_project_root_path() {
     while [ "$project_root_path" != "/" ] && [ "$(basename "$project_root_path")" != "$PROJECT_NAME" ]; do
         project_root_path=$(dirname "$project_root_path")
     done
-    echo "$project_root_path"
+    echo $project_root_path
 }
 
 setup_app() {
