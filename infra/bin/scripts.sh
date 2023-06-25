@@ -5,10 +5,10 @@ PROJECT_NAME="milonask"
 INPUTED_COMMANDS_COUNT="$#"
 INPUTED_COMMAND="$1"
 
-GREEN="\033[0;32m"
-RED="\033[0;31m"
-LIGHT_BLUE="\033[1;34m"
-NC="\033[0m"
+GREEN="$(printf '\033[0;32m')"
+RED="$(printf '\033[0;31m')"
+LIGHT_BLUE="$(printf '\033[1;34m')"
+NC="$(printf '\033[0m')"
 
 MANUAL_INFO=""
 MANUAL_INFO+="${LIGHT_BLUE}Usage:${NC} sh ./scripts.sh COMMAND\n"
@@ -22,7 +22,7 @@ MANUAL_INFO+="    load_data  . . . . . . . Load test data with promocodes to dat
 MANUAL_INFO+="    help . . . . . . . . . . Returns more information."
 
 
-get_project_root_path() {
+function get_project_root_path() {
     project_root_path=$CURRENT_DIR
     while [[ "$project_root_path" != "/" && $(basename "$project_root_path") != "$PROJECT_NAME" ]]; do
         project_root_path=$(dirname "$project_root_path")
@@ -30,7 +30,7 @@ get_project_root_path() {
     echo $project_root_path
 }
 
-setup_app() {
+function setup_app() {
     printf "\n${GREEN}Add backend env variables${NC}\n"
     sh $(get_project_root_path)/backend/bin/create-env.sh
 
