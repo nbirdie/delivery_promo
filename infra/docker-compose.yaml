@@ -12,15 +12,15 @@ services:
   frontend:
     image: nbirdie/milonask-frontend:latest
     volumes:
-      - ../frontend/:/app/build/
+      - ../frontend/:/app/result_build/
 
   backend:
     image: nbirdie/milonask-backend:latest
     restart: always 
     volumes: 
-      - static_value:/app/static/
-      - media_value:/app/media/
-      - ../backend/:/app/
+      - static_value:/code/static/
+      - media_value:/code/media/
+      - ../backend/:/code/
     depends_on: 
       - db 
     env_file: 

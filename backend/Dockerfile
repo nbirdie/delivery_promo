@@ -16,7 +16,7 @@ RUN pip uninstall poetry -y
 
 FROM scratch AS runtime-image
 
-WORKDIR /app
+WORKDIR /code
 
 COPY --from=compile-image / /
 COPY . .
