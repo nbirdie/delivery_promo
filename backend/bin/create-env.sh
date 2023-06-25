@@ -4,7 +4,7 @@ CURRENT_DIR=$(pwd)
 PROJECT_NAME="milonask"
 
 
-function get_env_path() {
+get_env_path() {
     project_root_path=$CURRENT_DIR
     while [[ "$project_root_path" != "/" && $(basename "$project_root_path") != "$PROJECT_NAME" ]]; do
         project_root_path=$(dirname "$project_root_path")
@@ -13,14 +13,14 @@ function get_env_path() {
     echo $env_file_path
 }
 
-function remove_env_file() {
+remove_env_file() {
     env_file_path=$(get_env_path)
     if [ -f "$env_file_path" ]; then
         rm -rf $env_file_path
     fi
 }
 
-function add_env_variable() {
+add_env_variable() {
     variable_name=$1
     new_value=$2
     echo "$variable_name=$new_value" >> "$(get_env_path)"
@@ -60,12 +60,12 @@ fi
 
 remove_env_file
 add_env_variable "DJANGO_SECRET_KEY" "$DJANGO_SECRET_KEY"
-add_env_variable "DJANGO_DEBUG" $DJANGO_DEBUG
-add_env_variable "DJANGO_TIME_ZONE" $DJANGO_TIME_ZONE
-add_env_variable "DJANGO_APP_TITLE" $DJANGO_APP_TITLE
-add_env_variable "POSTGRES_ENGINE" $POSTGRES_ENGINE
-add_env_variable "POSTGRES_NAME" $POSTGRES_NAME
-add_env_variable "POSTGRES_USER" $POSTGRES_USER
-add_env_variable "POSTGRES_PASSWORD" $POSTGRES_PASSWORD
-add_env_variable "POSTGRES_HOST" $POSTGRES_HOST
-add_env_variable "POSTGRES_PORT" $POSTGRES_PORT
+add_env_variable "DJANGO_DEBUG" "$DJANGO_DEBUG"
+add_env_variable "DJANGO_TIME_ZONE" "$DJANGO_TIME_ZONE"
+add_env_variable "DJANGO_APP_TITLE" "$DJANGO_APP_TITLE"
+add_env_variable "POSTGRES_ENGINE" "$POSTGRES_ENGINE"
+add_env_variable "POSTGRES_NAME" "$POSTGRES_NAME"
+add_env_variable "POSTGRES_USER" "$POSTGRES_USER"
+add_env_variable "POSTGRES_PASSWORD" "$POSTGRES_PASSWORD"
+add_env_variable "POSTGRES_HOST" "$POSTGRES_HOST"
+add_env_variable "POSTGRES_PORT" "$POSTGRES_PORT"
