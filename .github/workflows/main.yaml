@@ -56,10 +56,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           run: |
-            cd ~
+            cd ~ &&
 
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_BACKEND }}:latest  &&
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_FRONTEND }}:latest 
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_BACKEND }}:latest &&
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKER_IMAGE_FRONTEND }}:latest &&
 
             if [ -d ./apps/${{ secrets.GIT_PROJECT_NAME }}/ ]; then
               cd ./apps/${{ secrets.GIT_PROJECT_NAME }}/ &&
@@ -69,7 +69,7 @@ jobs:
               cd ./apps/ &&
               git clone https://github.com/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_PROJECT_NAME }}.git &&
               cd ./${{ secrets.GIT_PROJECT_NAME }}/
-            fi
+            fi &&
 
             unset DJANGO_SECRET_KEY &&
             unset DJANGO_SECRET_KEY &&
@@ -81,7 +81,7 @@ jobs:
             unset POSTGRES_USER &&
             unset POSTGRES_PASSWORD &&
             unset POSTGRES_HOST &&
-            unset POSTGRES_PORT
+            unset POSTGRES_PORT &&
 
             export DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" &&
             export DJANGO_DEBUG="${{ secrets.DJANGO_DEBUG }}" &&
@@ -94,6 +94,6 @@ jobs:
             export POSTGRES_HOST="${{ secrets.POSTGRES_HOST }}" &&
             export POSTGRES_PORT="${{ secrets.POSTGRES_PORT }}" &&
 
-            sh ./infra/bin/scripts.sh setup_app
+            sh ./infra/bin/scripts.sh setup_app &&
 
             cd ~
