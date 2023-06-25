@@ -11,7 +11,7 @@ LIGHT_BLUE="\033[1;34m"
 NC="\033[0m"
 
 MANUAL_INFO=""
-MANUAL_INFO+="${LIGHT_BLUE}Usage:${NC} sh ./start-project.sh COMMAND\n"
+MANUAL_INFO+="${LIGHT_BLUE}Usage:${NC} sh ./scripts.sh COMMAND\n"
 MANUAL_INFO+="${LIGHT_BLUE}Options:${NC}\n"
 MANUAL_INFO+="    setup_app  . . . . . . . Starts app with production mode.\n"
 MANUAL_INFO+="    setup_app_local  . . . . Starts app with local development mode.\n"
