@@ -24,7 +24,7 @@ MANUAL_INFO="${MANUAL_INFO}    help . . . . . . . . . . Returns more information
 
 get_project_root_path() {
     project_root_path=$CURRENT_DIR
-    while [[ "$project_root_path" != "/" && $(basename "$project_root_path") != "$PROJECT_NAME" ]]; do
+    while [ "$project_root_path" != "/" ] && [ "$(basename "$project_root_path")" != "$PROJECT_NAME" ]; do
         project_root_path=$(dirname "$project_root_path")
     done
     echo $project_root_path
