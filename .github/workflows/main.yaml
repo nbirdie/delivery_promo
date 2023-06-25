@@ -64,7 +64,7 @@ jobs:
             if [ -d ./apps/${{ secrets.GIT_PROJECT_NAME }}/ ];
               then
                 cd ./apps/${{ secrets.GIT_PROJECT_NAME }}/
-                sh ./infra/bin/script.sh stop_app
+                sh ./infra/bin/scripts.sh stop_app
                 git pull;
               else
                 cd ./apps/ &&
