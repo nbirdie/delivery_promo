@@ -22,7 +22,7 @@ MANUAL_INFO+="    load_data  . . . . . . . Load test data with promocodes to dat
 MANUAL_INFO+="    help . . . . . . . . . . Returns more information."
 
 
-function get_project_root_path() {
+get_project_root_path() {
     project_root_path=$CURRENT_DIR
     while [[ "$project_root_path" != "/" && $(basename "$project_root_path") != "$PROJECT_NAME" ]]; do
         project_root_path=$(dirname "$project_root_path")
@@ -30,7 +30,7 @@ function get_project_root_path() {
     echo $project_root_path
 }
 
-function setup_app() {
+setup_app() {
     printf "\n${GREEN}Add backend env variables${NC}\n"
     sh $(get_project_root_path)/backend/bin/create-env.sh
 

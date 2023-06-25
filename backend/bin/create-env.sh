@@ -4,7 +4,7 @@ CURRENT_DIR=$(pwd)
 PROJECT_NAME="milonask"
 
 
-function get_env_path() {
+get_env_path() {
     project_root_path=$CURRENT_DIR
     while [[ "$project_root_path" != "/" && $(basename "$project_root_path") != "$PROJECT_NAME" ]]; do
         project_root_path=$(dirname "$project_root_path")
@@ -13,14 +13,14 @@ function get_env_path() {
     echo $env_file_path
 }
 
-function remove_env_file() {
+remove_env_file() {
     env_file_path=$(get_env_path)
     if [ -f "$env_file_path" ]; then
         rm -rf $env_file_path
     fi
 }
 
-function add_env_variable() {
+add_env_variable() {
     variable_name=$1
     new_value=$2
     echo "$variable_name=$new_value" >> "$(get_env_path)"
