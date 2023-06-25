@@ -97,28 +97,28 @@ jobs:
     needs:
       - build-backend
       - build-frontend
-    env:
-      SERVER_USER: ${{ secrets.SERVER_USER }}
-      SERVER_HOST: ${{ secrets.SERVER_HOST }}
-      SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKER_IMAGE_BACKEND: ${{ secrets.DOCKER_IMAGE_BACKEND }}
-      DOCKER_IMAGE_FRONTEND: ${{ secrets.DOCKER_IMAGE_FRONTEND }}
-      GIT_PROJECT_NAME: ${{ secrets.GIT_PROJECT_NAME }}
-      GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-      DJANGO_DEBUG: ${{ secrets.DJANGO_DEBUG }}
-      DJANGO_TIME_ZONE: ${{ secrets.DJANGO_TIME_ZONE }}
-      DJANGO_APP_TITLE: ${{ secrets.DJANGO_APP_TITLE }}
-      POSTGRES_ENGINE: ${{ secrets.POSTGRES_ENGINE }}
-      POSTGRES_NAME: ${{ secrets.POSTGRES_NAME }}
-      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
-      POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
     steps:
       - name: Execute remote ssh commands to deploy
         uses: appleboy/ssh-action@v0.1.10
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_IMAGE_BACKEND: ${{ secrets.DOCKER_IMAGE_BACKEND }}
+          DOCKER_IMAGE_FRONTEND: ${{ secrets.DOCKER_IMAGE_FRONTEND }}
+          GIT_PROJECT_NAME: ${{ secrets.GIT_PROJECT_NAME }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+          DJANGO_DEBUG: ${{ secrets.DJANGO_DEBUG }}
+          DJANGO_TIME_ZONE: ${{ secrets.DJANGO_TIME_ZONE }}
+          DJANGO_APP_TITLE: ${{ secrets.DJANGO_APP_TITLE }}
+          POSTGRES_ENGINE: ${{ secrets.POSTGRES_ENGINE }}
+          POSTGRES_NAME: ${{ secrets.POSTGRES_NAME }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
