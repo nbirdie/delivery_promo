@@ -68,16 +68,6 @@ jobs:
               git clone https://github.com/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_PROJECT_NAME }}.git &&
               cd ./${{ secrets.GIT_PROJECT_NAME }}/
             fi &&
-            unset DJANGO_SECRET_KEY &&
-            unset DJANGO_DEBUG &&
-            unset DJANGO_TIME_ZONE &&
-            unset DJANGO_APP_TITLE &&
-            unset POSTGRES_ENGINE &&
-            unset POSTGRES_NAME &&
-            unset POSTGRES_USER &&
-            unset POSTGRES_PASSWORD &&
-            unset POSTGRES_HOST &&
-            unset POSTGRES_PORT &&
             export DJANGO_SECRET_KEY="${{ secrets.secrets.DJANGO_SECRET_KEY }}" &&
             export DJANGO_DEBUG="${{ secrets.DJANGO_DEBUG }}" &&
             export DJANGO_TIME_ZONE="${{ secrets.DJANGO_TIME_ZONE }}" &&
