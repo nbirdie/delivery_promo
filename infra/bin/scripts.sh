@@ -1,4 +1,5 @@
 #!/bin/bash
+
 CURRENT_DIR=$(pwd)
 PROJECT_NAME="milonask"
 INPUTED_COMMANDS_COUNT="$#"
@@ -34,10 +35,13 @@ function setup_app() {
     sh $(get_project_root_path)/backend/bin/create-env.sh
 
     printf "\n${GREEN}Start up containers${NC}\n"
-    if [ $1 = true ]; then
+    if [ "$1" = "local" ]; then
         docker-compose -f docker-compose.local.yaml up -d --build
-    else
+    elif [ "$1" = "prod" ]; then
         docker-compose -f docker-compose.yaml up -d --build
+    else
+        printf "\n${RED}Sorry, something wents wrong ${NC}\n"
+        exit 1
     fi
 
     printf "\n${GREEN}Updating db tables${NC}\n"
@@ -59,12 +63,11 @@ elif [ $INPUTED_COMMANDS_COUNT -gt 1 ]; then
 # sh scripts.sh setup_app
 elif [ $INPUTED_COMMAND = "setup_app" ]; then
     printf "\n${GREEN}::: App lounch starts :::${NC}\n"
-    setup_app false
+    setup_app "prod"
 # sh scripts.sh setup_app_local
 elif [ $INPUTED_COMMAND = "setup_app_local" ]; then
-    echo $(pwd)
     printf "\n${GREEN}::: App lounch starts with local development mode :::${NC}\n"
-    setup_app true
+    setup_app "local"
 # sh scripts.sh stop_app
 elif [ $INPUTED_COMMAND = "stop_app" ]; then
     printf "\n${GREEN}::: Delete all app's containers :::${NC}\n"

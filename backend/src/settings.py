@@ -4,24 +4,11 @@ import os
 from envparse import env as envparse
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = envparse("SECRET_KEY", default="qwerty", cast=str)
-DEBUG = envparse("DEBUG", default=True, cast=bool)
+SECRET_KEY = envparse("DJANGO_SECRET_KEY", default="qwerty", cast=str)
+DEBUG = envparse("DJANGO_DEBUG", default=True, cast=bool)
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["http://localhost:80", "http://127.0.0.1:80", "http://localhost"]
-CORS_ORIGIN_WHITELIST = ["http://localhost:80", "http://127.0.0.1:80", "http://localhost"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost", "http://89.108.99.250"]
 CORS_ALLOW_METHODS = ["POST"]
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
-CORS_ALLOW_ALL_ORIGINS = True
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -95,9 +82,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 LANGUAGE_CODE = "en"
-TIME_ZONE = envparse("TIME_ZONE", default="Europe/Moscow", cast=str)
+TIME_ZONE = envparse("DJANGO_TIME_ZONE", default="Europe/Moscow", cast=str)
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-APP_TITLE: str = envparse("APP_TITLE", "Promocodes service", str)
+APP_TITLE: str = envparse("DJANGO_APP_TITLE", "Promocodes service", str)
