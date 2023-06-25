@@ -65,11 +65,11 @@ jobs:
               then
                 cd ./apps/${{ secrets.GIT_PROJECT_NAME }}/
                 sh ./infra/bin/scripts.sh stop_app
-                git pull;
+                git pull
               else
-                cd ./apps/ &&
-                git clone https://github.com/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_PROJECT_NAME }}.git &&
-                cd ./${{ secrets.GIT_PROJECT_NAME }}/;
+                cd ./apps/
+                git clone https://github.com/${{ secrets.GIT_USERNAME }}/${{ secrets.GIT_PROJECT_NAME }}.git
+                cd ./${{ secrets.GIT_PROJECT_NAME }}/
             fi
 
             unset DJANGO_SECRET_KEY
