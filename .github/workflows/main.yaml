@@ -75,16 +75,16 @@ jobs:
                 cd ./${{ secrets.GIT_PROJECT_NAME }}/;
             fi
 
-            export DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
-            export DJANGO_DEBUG=${{ secrets.DJANGO_DEBUG }}
-            export DJANGO_TIME_ZONE=${{ secrets.DJANGO_TIME_ZONE }}
-            export DJANGO_APP_TITLE=${{ secrets.DJANGO_APP_TITLE }}
-            export POSTGRES_ENGINE=${{ secrets.POSTGRES_ENGINE }}
-            export POSTGRES_NAME=${{ secrets.POSTGRES_NAME }}
-            export POSTGRES_USER=${{ secrets.POSTGRES_USER }}
-            export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
-            export POSTGRES_HOST=${{ secrets.POSTGRES_HOST }}
-            export POSTGRES_PORT=${{ secrets.POSTGRES_PORT }}
+            export DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}"
+            export DJANGO_DEBUG="${{ secrets.DJANGO_DEBUG }}"
+            export DJANGO_TIME_ZONE="${{ secrets.DJANGO_TIME_ZONE }}"
+            export DJANGO_APP_TITLE="${{ secrets.DJANGO_APP_TITLE }}"
+            export POSTGRES_ENGINE="${{ secrets.POSTGRES_ENGINE }}"
+            export POSTGRES_NAME="${{ secrets.POSTGRES_NAME }}"
+            export POSTGRES_USER="${{ secrets.POSTGRES_USER }}"
+            export POSTGRES_PASSWORD="${{ secrets.POSTGRES_PASSWORD }}"
+            export POSTGRES_HOST="${{ secrets.POSTGRES_HOST }}"
+            export POSTGRES_PORT="${{ secrets.POSTGRES_PORT }}"
 
             sh ./infra/bin/scripts.sh setup_app
 
