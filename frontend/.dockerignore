@@ -11,10 +11,6 @@ build/
 .env
 *.log
 
-# Package manager files
-package-lock.json
-yarn.lock
-
 # Build and configuration files
 webpack.config.js
 babel.config.js
