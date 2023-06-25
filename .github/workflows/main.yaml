@@ -105,6 +105,8 @@ jobs:
       - build-backend
       - build-frontend
     steps:
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
       - name: Execute remote SSH commands to deploy
         env:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
