@@ -72,6 +72,7 @@ jobs:
                 cd ./${{ secrets.GIT_PROJECT_NAME }}/
             fi
 
+            printf "Sarts unseting global variables"
             unset DJANGO_SECRET_KEY
             unset DJANGO_SECRET_KEY
             unset DJANGO_DEBUG
@@ -84,6 +85,7 @@ jobs:
             unset POSTGRES_HOST
             unset POSTGRES_PORT
 
+            printf "Sarts creating global variables"
             export DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}"
             export DJANGO_DEBUG="${{ secrets.DJANGO_DEBUG }}"
             export DJANGO_TIME_ZONE="${{ secrets.DJANGO_TIME_ZONE }}"
