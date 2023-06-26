@@ -23,9 +23,11 @@ export const MainContent = styled.main`
         margin-top: 16px;
     }
     @media (max-width: 767px) and (height >= 630px) {
+        margin-top: 16px;
         margin-bottom: 39px;
     }
     @media (max-width: 767px) and (height < 630px) {
+        margin-top: 16px;
         margin-bottom: 19px;
     }
 `;

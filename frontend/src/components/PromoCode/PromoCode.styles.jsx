@@ -37,6 +37,7 @@ export const PromoCodeWrapper = styled.div`
         margin-top: 70px;
     }
     @media (max-width: 767px) {
+        margin-top: 116px;
         width: 200.43px;
         height: 93px;
         span {
