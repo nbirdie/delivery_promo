@@ -28,34 +28,44 @@ add_env_variable() {
 }
 
 
-if [ -z "$DJANGO_SECRET_KEY" ]; then DJANGO_SECRET_KEY="secret_key"
+if [ -z "$DJANGO_SECRET_KEY" ]; then
+    DJANGO_SECRET_KEY="secret_key"
 fi
 
-if [ -z "$DJANGO_DEBUG" ]; then DJANGO_DEBUG="true"
+if [ -z "$DJANGO_DEBUG" ]; then
+    DJANGO_DEBUG="true"
 fi
 
-if [ -z "$DJANGO_TIME_ZONE" ]; then DJANGO_TIME_ZONE="America/New_York"
+if [ -z "$DJANGO_TIME_ZONE" ]; then
+    DJANGO_TIME_ZONE="America/New_York"
 fi
 
-if [ -z "$DJANGO_APP_TITLE" ]; then DJANGO_APP_TITLE="Milonask"
+if [ -z "$DJANGO_APP_TITLE" ]; then
+    DJANGO_APP_TITLE="Milonask"
 fi
 
-if [ -z "$POSTGRES_ENGINE" ]; then POSTGRES_ENGINE="django.db.backends.postgresql"
+if [ -z "$POSTGRES_ENGINE" ]; then
+    POSTGRES_ENGINE="django.db.backends.postgresql"
 fi
 
-if [ -z "$POSTGRES_NAME" ]; then POSTGRES_NAME="postgres"
+if [ -z "$POSTGRES_NAME" ]; then
+    POSTGRES_NAME="postgres"
 fi
 
-if [ -z "$POSTGRES_USER" ]; then POSTGRES_USER="postgres"
+if [ -z "$POSTGRES_USER" ]; then
+    POSTGRES_USER="postgres"
 fi
 
-if [ -z "$POSTGRES_PASSWORD" ]; then POSTGRES_PASSWORD="postgres"
+if [ -z "$POSTGRES_PASSWORD" ]; then
+    POSTGRES_PASSWORD="postgres"
 fi
 
-if [ -z "$POSTGRES_HOST" ]; then POSTGRES_HOST="db"
+if [ -z "$POSTGRES_HOST" ]; then
+    POSTGRES_HOST="db"
 fi
 
-if [ -z "$POSTGRES_PORT" ]; then POSTGRES_PORT="5432"
+if [ -z "$POSTGRES_PORT" ]; then
+    POSTGRES_PORT="5432"
 fi
 
 remove_env_file
