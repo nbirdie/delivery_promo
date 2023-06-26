@@ -112,6 +112,26 @@ export const HandMoveWrapper = styled.div`
             line-height: ${({ theme }) => theme.text.lineHeight.bigMedium}px;
         }
     }
+    @media (max-width: 767px) {
+        top: 314px;
+        gap: 45px;
+        width: 300px;
+        padding-top: 50px;
+        .hand-icon {
+            width: 96px;
+            height: 39px;
+            svg {
+                width: 32.26px;
+                height: 38.71px;
+            }
+        }
+        span {
+            width: 155px;
+            height: 34px;
+            font-size: ${({ theme }) => theme.text.fontSize.fs3}px;
+            line-height: ${({ theme }) => theme.text.lineHeight.mediumBig}px;
+        }
+    }
     @media (max-width: 767px) and (height >= 630px) {
         top: 314px;
         gap: 45px;

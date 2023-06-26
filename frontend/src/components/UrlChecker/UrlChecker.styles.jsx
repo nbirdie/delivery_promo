@@ -23,6 +23,9 @@ export const WrongPageWrapper = styled.div`
         height: 60px;
 
     }
+    @media (max-width: 767px) {
+        width: 300px;
+    }
     @media (max-width: 767px) and (height >= 630px) {
         width: 300px;
     }
