@@ -12,7 +12,7 @@ services:
   frontend:
     image: nbirdie/milonask-frontend:latest
     volumes:
-      - ../frontend/:/app/build/
+      - ../frontend/:/app/result_build/
 
   backend:
     image: nbirdie/milonask-backend:latest
