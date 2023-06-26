@@ -2,6 +2,16 @@
 
 # Milonask
 
+[![Javascript](https://img.shields.io/badge/-Javascript-464646?style=flat-square&logo=Javascript)](https://github.com/features/actions)
+[![React](https://img.shields.io/badge/-React-464646?style=flat-square&logo=React)](https://github.com/features/actions)
+[![Python](https://img.shields.io/badge/-Python-464646?style=flat-square&logo=Python)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/-Django-464646?style=flat-square&logo=Django)](https://www.djangoproject.com/)
+[![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-464646?style=flat-square&logo=PostgreSQL)](https://www.postgresql.org/)
+[![Nginx](https://img.shields.io/badge/-NGINX-464646?style=flat-square&logo=NGINX)](https://nginx.org/ru/)
+[![gunicorn](https://img.shields.io/badge/-gunicorn-464646?style=flat-square&logo=gunicorn)](https://gunicorn.org/)
+[![docker](https://img.shields.io/badge/-Docker-464646?style=flat-square&logo=docker)](https://www.docker.com/)
+[![GitHub%20Actions](https://img.shields.io/badge/-GitHub%20Actions-464646?style=flat-square&logo=GitHub%20actions)](https://github.com/features/actions)
+
 ## Содержание
 1. [Описание](#description)
 2. [Запуск проекта](#launch)
@@ -9,6 +19,7 @@
 4. [Ссылки на промокоды](#promocodes-links)
 
 ## <a name='description'>Описание</a>
+Проект по созданию кликабельного лендинга, админки с аналитикой по промокодам для рекламной компании крупного ритейл клиента.
 
 
 ## <a name='launch'>Запуск проекта</a>
@@ -25,6 +36,7 @@
   * `sh ./infra/bin/scripts.sh help`
 
 При локальной разработке проект доступен по адресу http://localhost/.
+
 Готовый проект можно найти на сайте http://89.108.99.250/.
 
 ## <a name='admin'>Доступ в админку</a>
