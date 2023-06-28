@@ -40,7 +40,7 @@ setup_app() {
     elif [ "$1" = "prod" ]; then
         docker-compose -f docker-compose.yaml up -d --build
     else
-        printf "\n${RED}Sorry, something wents wrong ${NC}\n"
+        printf "\n${RED}Sorry, something went wrong ${NC}\n"
         exit 1
     fi
 
@@ -62,11 +62,11 @@ elif [ $INPUTED_COMMANDS_COUNT -gt 1 ]; then
     printf "\n$MANUAL_INFO\n"
 # sh scripts.sh setup_app
 elif [ $INPUTED_COMMAND = "setup_app" ]; then
-    printf "\n${GREEN}::: App lounch starts :::${NC}\n"
+    printf "\n${GREEN}::: App launch starts :::${NC}\n"
     setup_app "prod"
 # sh scripts.sh setup_app_local
 elif [ $INPUTED_COMMAND = "setup_app_local" ]; then
-    printf "\n${GREEN}::: App lounch starts with local development mode :::${NC}\n"
+    printf "\n${GREEN}::: App launch starts with local development mode :::${NC}\n"
     setup_app "local"
 # sh scripts.sh stop_app
 elif [ $INPUTED_COMMAND = "stop_app" ]; then
