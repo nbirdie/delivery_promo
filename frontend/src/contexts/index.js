@@ -1,1 +1,1 @@
-export * from "./MultiContext";
+export * from './MultiContext';
